@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use App\Models\Slide;
+use App\Models\Direction;
+use App\Models\Piece;
+use App\Models\Skill;
+use App\Models\Education;
+use App\Models\Experiences;
 
 class BaseController extends Controller
 {
@@ -10,18 +16,21 @@ class BaseController extends Controller
     {
         return view('home',[
             'menu' => [
+                'key0' => ['nav' => 'home', 'name' => 'Главная'],
                 'key1' => ['nav' => 'about', 'name' => 'Обо мне'],
                 'key2' => ['nav' => 'skills', 'name' => 'Навыки'],
                 'key3' => ['nav' => 'education', 'name' => 'Образование'],
-                'key4' => ['nav' => 'experience', 'name' => 'Опыт работы'],
+                'key4' => ['nav' => 'experiences', 'name' => 'Опыт работы'],
                 'key5' => ['nav' => 'works', 'name' => 'Портфолио'],
                 'key6' => ['nav' => 'contacts', 'name' => 'Контакты']
             ],
-            'slides' => [
-                ['h1' => 'Donec dapibus elit.', 'h2' => 'Phasellus sed ipsum ac nunc pulvinar consequat.', 'image' => 'img_bg_1.jpg'],
-                ['h1' => 'Integer vel porttitor.', 'h2' => 'Aenean iaculis nulla odio, eleifend dictum nisi.', 'image' => 'img_bg_2.jpg'],
-                ['h1' => 'Suspendisse potenti. Sed.', 'h2' => 'Nam quis enim laoreet, placerat libero id.', 'image' => 'img_bg_3.jpg'],
-            ]
+            'fadeIn' => ['fadeInLeft','fadeInRight','fadeInTop','fadeInBottom'],
+            'slides' => Slide::all(),
+            'directions' => Direction::with('works')->get(),
+            'pieces' => Piece::all(),
+            'skills' => Skill::all(),
+            'education' => Education::all(),
+            'experiences' => Experiences::all()
         ]);
     }
 }

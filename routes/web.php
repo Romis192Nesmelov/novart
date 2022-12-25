@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BaseController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +15,4 @@ use App\Http\Controllers\BaseController;
 */
 
 Route::get('/', BaseController::class)->name('home');
+Route::post('/feedback', [PostController::class, 'feedback'])->name('feedback');
