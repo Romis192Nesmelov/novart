@@ -1,5 +1,5 @@
 .portfolio:not(.active) {
-    opacity: 0;
+    display: none;
 }
 
 #loader {
