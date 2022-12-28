@@ -16,8 +16,8 @@ class EducationsTableSeeder extends Seeder
     public function run()
     {
         $data = [
-            ['name' => 'Master Degree Graphic Design', 'description' => 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.'],
-            ['name' => 'Bachelor Degree of Computer Science', 'description' => 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.'],
+            ['name' => 'Российский университет дружбы народов, Москва. 2021', 'description' => 'Институт гостиничного бизнеса и туризма, Гостиничное дело.'],
+            ['name' => 'American club of Education. 2022', 'description' => 'Английский язык.'],
         ];
 
         foreach ($data as $item) {

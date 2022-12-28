@@ -36,7 +36,7 @@
     <!-- Animate.css -->
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
+    <link rel="stylesheet" href="{{ asset('fonts/icomoon/styles.css') }}">
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <!-- Flexslider  -->
@@ -129,16 +129,35 @@
                                 <div class="col-md-12">
                                     <div class="about-desc">
                                         @include('blocks.head_section',['head' => $menu['key1']['name']])
-                                        <p>Ut metus dui, feugiat a erat vel, tincidunt maximus nibh. Nunc congue commodo felis id blandit. Vivamus iaculis consequat leo, et iaculis diam consequat volutpat. Sed vehicula mollis consectetur. Nullam quis magna hendrerit, lobortis odio ut, elementum dui. Nunc semper nulla vulputate congue pellentesque. Etiam feugiat eros sodales, eleifend sem ac, iaculis dui.</p>
-                                        <p>Cras iaculis tellus sit amet augue tempus, sit amet fermentum nunc posuere. Vestibulum gravida id ligula quis accumsan. Fusce ex ante, tristique non nisl at, accumsan interdum mi. Integer pellentesque, diam et venenatis porttitor, mi dui lobortis diam, eget faucibus mi sem non quam. Nulla a accumsan turpis, a blandit turpis. Nam at justo suscipit, ultricies nibh sit amet, cursus ex. Nulla elementum elit nunc, id dignissim arcu fermentum eu.</p>
+                                        <h4>Меня зовут Новикова Марина.</h4>
+                                        <p>Я графический дизайнер с 4-х летнем опытом работы в цифровом, графическом и веб дизайне.</p>
+                                        <p>В своей работе использую следующие инструменты:</p>
+                                        <ul>
+                                            <li>Adobe (Illustrator, InDesign, Photoshop);</li>
+                                            <li>Figma;</li>
+                                            <li>Adobe After Effects;</li>
+                                            <li>Вlender</li>
+                                        </ul>
+                                        <p>В основном занимаюсь цифровым дизайном, а именно: разработкой визуального стиля компании (логотипы), созданием брендов, отрисовкой баннеров (на разные тематики), макетов сайтов и приложений (визуальная часть), оформлением постов, историй, стикеров для социальных сетей, презентаций, инфографики для маркетплейсов (в том числе оформление рич-контента), созданием иллюстраций и персонажей (для книг, для настольных игр, визиток, сайтов и так далее), версткой макетов этикеток по брифу (или по заданному шаблону), оформлением постеров, плактов или приглашение (для любых мероприятий), обработка фотографий (ретушь) и цветокррекция</p>
+                                        <h4>Преимущества работы со мной:</h4>
+                                        <ul>
+                                            <li>Создаю дизайны под различные устройства (десктоп, планшеты, смартфоны и так далее);</li>
+                                            <li>Соблюдаю дедлайны как никто другой;</li>
+                                            <li>Уровень английского Intermediate  (открыта к проектам с инностранными заказчиками);</li>
+                                            <li>Большой опыт общения с заказчиками;</li>
+                                            <li>Коммуникабельность, умение доносить свою точку зрения;</li>
+                                            <li>Всегда открыта к новым и интересным проектам!</li>
+                                        </ul>
+                                        <p>Буду рада помочь Вам в создание дизайна для продвижения Вашей компании на российском и иностранном рынках!</p>
+                                        <a href="{{ asset('resume.pdf') }}" target="_blank"><button class="btn btn-primary">Резюме во вложении</button></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <?php $count = 0; ?>
                                 @foreach($directions as $k => $item)
-                                    <div class="col-md-3 animate-box" data-animate-effect="{{ $fadeIn[$count] }}">
-                                        <div class="services color-{{ $k }}">
+                                    <div class="col-md-4 animate-box" data-animate-effect="{{ $fadeIn[$count] }}">
+                                        <div class="services color-{{ $k+1 }}">
                                             <span class="icon2"><i class="{{ $item->icon }}"></i></span>
                                             <h3>{{ $item->name }}</h3>
                                         </div>
@@ -153,7 +172,7 @@
                             <div class="row">
                                 <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
                                     <div class="hire">
-                                        <h2>I am happy to know you <br>that 300+ projects done sucessfully!</h2>
+                                        <h2>Буду рада помочь Вам в создание дизайна<br>для продвижения Вашей компании на российском и иностранном рынках!</h2>
 {{--                                        <a href="#" class="btn-hire">Hire me</a>--}}
                                     </div>
                                 </div>
@@ -246,7 +265,7 @@
                                             <div class="timeline-label">
                                                 <h2>{{ $experience->company }} <span>{{ $experience->years }}</span></h2>
                                                 <h3>{{ $experience->title }}</h3>
-                                                <p>{{ $experience->description }}</p>
+                                                {!! $experience->description !!}
                                             </div>
                                         </div>
                                     </article>
@@ -273,18 +292,17 @@
                         @foreach($directions as $k => $direction)
                             <div id="portfolio{{ $direction->id }}" class="portfolio {{ !$k ? 'active' : '' }}">
                                 @foreach($direction->works as $work)
-                                    <a href="{{ asset('images/portfolio/'.$work->full) }}" class="img-preview">
-                                        <div class="col-md-6 {{ !$k ? 'animate-box' : '' }}" {{ !$k ? 'data-animate-effect=fadeInLeft' : '' }}>
-                                            <div class="project" style="background-image: url({{ asset('images/portfolio/'.$work->preview) }});">
-                                                <div class="desc">
-                                                    <div class="con">
-                                                        <h3>{{ $work->name }}</h3>
-                                                        <span>{{ $work->descriptiom }}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <div class="col-md-6 {{ !$k ? 'animate-box' : '' }}" {{ !$k ? 'data-animate-effect=fadeInLeft' : '' }}>
+                                        <div class="project" style="background-image: url({{ asset('images/portfolio/'.$work->preview) }});">
+                                            <a href="{{ asset('images/portfolio/'.$work->full) }}" class="img-preview"><img src="{{ asset('images/portfolio/'.$work->preview) }}" class="w-100" /></a>
+{{--                                                <div class="desc">--}}
+{{--                                                    <div class="con">--}}
+{{--                                                        <h3>{{ $work->name }}</h3>--}}
+{{--                                                        <span>{{ $work->descriptiom }}</span>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
                                         </div>
-                                    </a>
+                                    </div>
                                 @endforeach
                             </div>
                         @endforeach

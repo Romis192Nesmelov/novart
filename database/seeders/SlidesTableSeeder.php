@@ -16,9 +16,9 @@ class SlidesTableSeeder extends Seeder
     public function run()
     {
         $data = [
-            ['h1' => 'Donec dapibus elit.', 'h2' => 'Phasellus sed ipsum ac nunc pulvinar consequat.', 'image' => 'img_bg_1.jpg'],
-            ['h1' => 'Integer vel porttitor.', 'h2' => 'Aenean iaculis nulla odio, eleifend dictum nisi.', 'image' => 'img_bg_2.jpg'],
-            ['h1' => 'Suspendisse potenti. Sed.', 'h2' => 'Nam quis enim laoreet, placerat libero id.', 'image' => 'img_bg_3.jpg'],
+            ['h1' => 'Открытость и коммуникабельность.', 'h2' => 'Всегда открыта новым, интересным проектам и рада плодотворному и долгосрочному сотрудничеству с клиентами.', 'image' => 'img_bg_1.jpg'],
+            ['h1' => 'Пунктуальность.', 'h2' => 'Соблюдаю дедлайны как никто другой.', 'image' => 'img_bg_2.jpg'],
+            ['h1' => 'Креативность.', 'h2' => 'Фантазия и энергия бьет ключом, невозможно остановить.', 'image' => 'img_bg_3.jpg'],
         ];
 
         foreach ($data as $item) {

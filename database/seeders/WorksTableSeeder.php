@@ -17,20 +17,23 @@ class WorksTableSeeder extends Seeder
     public function run()
     {
         $dataDirections = [
-            ['name' => 'Граф. дизайн', 'icon' => 'icon-bulb'],
-            ['name' => 'Веб дизайн', 'icon' => 'icon-globe-outline'],
-            ['name' => 'Сайты', 'icon' => 'icon-data'],
-            ['name' => 'UI/UX дизайн', 'icon' => 'icon-phone3'],
+            ['name' => 'Графика', 'icon' => 'icon-images2'],
+            ['name' => 'Айдентика', 'icon' => 'icon-trophy4'],
+            ['name' => 'Дизайн', 'icon' => 'icon-brush'],
         ];
 
-        foreach ($dataDirections as $item) {
+        $dataWorks = ['graphics', 'logos','design'];
+
+        foreach ($dataDirections as $k => $item) {
             $direction = Direction::create($item);
-            for ($i=0;$i<6;$i++) {
+            $localPath = $dataWorks[$k].'/';
+            $countImages = count(glob(base_path('public/images/portfolio/'.$localPath.'*')))/2;
+            for ($i=0;$i<$countImages;$i++) {
                 Work::create([
-                    'name' => 'Work #'.($i+1),
-                    'description' => 'Ut metus dui, feugiat a erat vel, tincidunt maximus nibh.',
-                    'preview' => 'img-'.($i+1).'.jpg',
-                    'full' => 'img-'.($i+1).'.jpg',
+//                    'name' => 'Work #'.($i+1),
+//                    'description' => 'Ut metus dui, feugiat a erat vel, tincidunt maximus nibh.',
+                    'preview' => $localPath.'image'.($i+1).'_preview.jpg',
+                    'full' => $localPath.'image'.($i+1).'_full.jpg',
                     'direction_id' => $direction->id
                 ]);
             }

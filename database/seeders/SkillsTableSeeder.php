@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+//use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Skill;
 
@@ -16,12 +16,12 @@ class SkillsTableSeeder extends Seeder
     public function run()
     {
         $data = [
-            ['name' => 'Photoshop', 'val' => 90],
-            ['name' => 'Indesign', 'val' => 75],
-            ['name' => 'jQuery', 'val' => 48],
-            ['name' => 'HTML5', 'val' => 60],
-            ['name' => 'CSS3', 'val' => 72],
-            ['name' => 'WordPress', 'val' => 40],
+            ['name' => 'Photoshop', 'val' => 95],
+            ['name' => 'Indesign', 'val' => 80],
+            ['name' => 'Illustrator', 'val' => 85],
+            ['name' => 'Figma', 'val' => 85],
+            ['name' => 'Adobe After Effects', 'val' => 70],
+            ['name' => 'Вlender', 'val' => 40],
         ];
 
         foreach ($data as $item) {
